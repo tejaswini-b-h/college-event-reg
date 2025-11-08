@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Registration – Multi Step</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="form-container">
+    <h2>Event Registration Form</h2>
+    <form id="multiStepForm" enctype="multipart/form-data">
+
+      <!-- Step 1: Details -->
+      <div class="form-step active">
+        <h3>Step 1: Your Details</h3>
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="text" id="college" placeholder="College Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <select id="event" required>
+          <option value="">Select Event</option>
+          <option value="Coding Challenge">Coding Challenge</option>
+          <option value="Poster Presentation">Poster Presentation</option>
+          <option value="Tech Quiz">Tech Quiz</option>
+        </select>
+        <button type="button" class="next-btn">Next</button>
+      </div>
+
+      <!-- Step 2: Payment -->
+      <div class="form-step">
+        <h3>Step 2: Payment</h3>
+        <p>Scan the below QR code to make the payment:</p>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?data=upi://pay?pa=event@upi&am=50&cu=INR" width="200" alt="Payment QR">
+        <input type="text" id="utr" placeholder="Enter UTR Number (12 digits)" maxlength="12" required>
+        <div class="step-nav">
+          <button type="button" class="prev-btn">Previous</button>
+          <button type="button" class="next-btn">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Upload Screenshot -->
+      <div class="form-step">
+        <h3>Step 3: Upload Payment Screenshot</h3>
+        <input type="file" id="screenshot" accept="image/*" required>
+        <div class="step-nav">
+          <button type="button" class="prev-btn">Previous</button>
+          <button type="button" class="next-btn">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 4: Confirm -->
+      <div class="form-step">
+        <h3>Step 4: Confirm Your Details</h3>
+        <div id="confirmData"></div>
+        <div class="step-nav">
+          <button type="button" class="prev-btn">Previous</button>
+          <button type="submit" class="submit-btn">Submit</button>
+        </div>
+      </div>
+
+    </form>
+    <p id="msg"></p>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
